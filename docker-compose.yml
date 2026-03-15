@@ -8,7 +8,7 @@ services:
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: ${DB_USER:-buggallery}
-      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
       WORDPRESS_DB_NAME: ${DB_NAME:-buggallery}
       WORDPRESS_CONFIG_EXTRA: |
         /* Site URL — set by environment */
@@ -56,8 +56,8 @@ services:
     environment:
       MYSQL_DATABASE: ${DB_NAME:-buggallery}
       MYSQL_USER: ${DB_USER:-buggallery}
-      MYSQL_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?DB_ROOT_PASSWORD is required}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
     networks:
