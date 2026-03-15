@@ -1,9 +1,7 @@
 FROM nginx:alpine
 
-# Bake the nginx config into the image to avoid
-# file-level bind mount issues on Coolify/Docker
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
-# Bake custom theme and plugin for static asset serving
-COPY wp-content/themes/buggallery /var/www/html/wp-content/themes/buggallery
-COPY wp-content/plugins/buggallery-core /var/www/html/wp-content/plugins/buggallery-core
+# Static assets for direct serving by nginx
+COPY wp-content/themes/buggallery /usr/src/wordpress/wp-content/themes/buggallery
+COPY wp-content/plugins/buggallery-core /usr/src/wordpress/wp-content/plugins/buggallery-core
