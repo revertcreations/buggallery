@@ -1,0 +1,22 @@
+/* Public-facing plugin styles — minimal, mostly handled by theme */
+
+/* Ensure WooCommerce notices look right on bug pages */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+    background: var(--bg-card, #1a1a1a);
+    border: 1px solid var(--border, #2a2a2a);
+    border-radius: var(--radius-md, 8px);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary, #f5f5f5);
+    list-style: none;
+}
+
+.woocommerce-message {
+    border-left: 3px solid var(--success, #34d399);
+}
+
+.woocommerce-error {
+    border-left: 3px solid var(--danger, #ef4444);
+}

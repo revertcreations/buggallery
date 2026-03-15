@@ -1,0 +1,27 @@
+node_modules/
+.wp-env/
+
+# WordPress core (managed by wp-env / Docker)
+wp-content/uploads/
+wp-content/upgrade/
+
+# Docker persistent data
+db_data/
+wp_uploads/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log

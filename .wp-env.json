@@ -1,0 +1,33 @@
+{
+  "core": "WordPress/WordPress#6.8",
+  "phpVersion": "8.2",
+  "plugins": [
+    "https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip",
+    "https://downloads.wordpress.org/plugin/woocommerce-gateway-stripe.latest-stable.zip",
+    "./wp-content/plugins/buggallery-core"
+  ],
+  "themes": [
+    "./wp-content/themes/buggallery"
+  ],
+  "config": {
+    "WP_DEBUG": true,
+    "WP_DEBUG_LOG": true,
+    "SCRIPT_DEBUG": true
+  },
+  "mappings": {
+    "wp-content/themes/buggallery": "./wp-content/themes/buggallery",
+    "wp-content/plugins/buggallery-core": "./wp-content/plugins/buggallery-core",
+    "wp-content/sample-content": "./sample-content"
+  },
+  "lifecycleScripts": {
+    "afterStart": "wp option update woocommerce_coming_soon no 2>/dev/null || true"
+  },
+  "env": {
+    "development": {
+      "port": 8888
+    },
+    "tests": {
+      "port": 8889
+    }
+  }
+}

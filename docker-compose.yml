@@ -1,0 +1,78 @@
+services:
+  wordpress:
+    image: wordpress:6.8-php8.2-fpm
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${DB_USER:-buggallery}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      WORDPRESS_DB_NAME: ${DB_NAME:-buggallery}
+      WORDPRESS_CONFIG_EXTRA: |
+        /* Site URL — set by environment */
+        define('WP_HOME', '${WP_URL:-http://localhost:8080}');
+        define('WP_SITEURL', '${WP_URL:-http://localhost:8080}');
+
+        /* Production hardening */
+        define('DISALLOW_FILE_EDIT', true);
+        define('WP_AUTO_UPDATE_CORE', false);
+        define('WP_ENVIRONMENT_TYPE', '${WP_ENV:-production}');
+
+        /* Printful */
+        define('BUGGALLERY_PRINTFUL_TOKEN', '${PRINTFUL_TOKEN:-}');
+        define('BUGGALLERY_PRINTFUL_CONFIRM', ${PRINTFUL_CONFIRM:-false});
+
+        /* Stripe keys are configured via WooCommerce admin settings */
+    volumes:
+      - wp_core:/var/www/html
+      - ./wp-content/plugins/buggallery-core:/var/www/html/wp-content/plugins/buggallery-core
+      - ./wp-content/themes/buggallery:/var/www/html/wp-content/themes/buggallery
+      - wp_uploads:/var/www/html/wp-content/uploads
+      - ./nginx/php.ini-uploads.conf:/usr/local/etc/php/conf.d/uploads.ini:ro
+    networks:
+      - buggallery
+
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    depends_on:
+      - wordpress
+    ports:
+      - "${PORT:-8080}:80"
+    volumes:
+      - wp_core:/var/www/html:ro
+      - ./wp-content/plugins/buggallery-core:/var/www/html/wp-content/plugins/buggallery-core:ro
+      - ./wp-content/themes/buggallery:/var/www/html/wp-content/themes/buggallery:ro
+      - wp_uploads:/var/www/html/wp-content/uploads:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - buggallery
+
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-buggallery}
+      MYSQL_USER: ${DB_USER:-buggallery}
+      MYSQL_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?DB_ROOT_PASSWORD is required}
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - buggallery
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  wp_core:
+  wp_uploads:
+  db_data:
+
+networks:
+  buggallery:
+    driver: bridge

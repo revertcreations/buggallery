@@ -1,0 +1,82 @@
+/**
+ * BugGallery Admin Styles
+ * Styles for the related links repeater and other admin UI
+ */
+
+/* Related Links Repeater */
+#buggallery-related-links-container {
+    margin-bottom: 12px;
+}
+
+.buggallery-link-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    margin-bottom: 4px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.buggallery-link-row:hover {
+    background: #f0f0f0;
+}
+
+.buggallery-drag-handle {
+    cursor: grab;
+    color: #999;
+    flex-shrink: 0;
+}
+
+.buggallery-drag-handle:active {
+    cursor: grabbing;
+}
+
+.buggallery-link-title {
+    flex: 1;
+    min-width: 120px;
+}
+
+.buggallery-link-url {
+    flex: 2;
+    min-width: 180px;
+}
+
+.buggallery-link-type {
+    flex-shrink: 0;
+    width: 110px;
+}
+
+.buggallery-remove-link {
+    flex-shrink: 0;
+    color: #a00;
+    border-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.buggallery-remove-link:hover {
+    color: #dc3232;
+}
+
+/* Sortable placeholder */
+.buggallery-link-placeholder {
+    height: 42px;
+    margin-bottom: 4px;
+    background: #e8f0fe;
+    border: 2px dashed #4285f4;
+    border-radius: 4px;
+}
+
+/* UI being dragged */
+.ui-sortable-helper {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: #fff !important;
+}
+
+/* QR Code meta box */
+#buggallery_qr_code .inside {
+    text-align: center;
+}

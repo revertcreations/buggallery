@@ -1,0 +1,16 @@
+{
+  "name": "buggallery",
+  "version": "1.0.0",
+  "description": "BugGallery - Unmanned Art Gallery Website with QR Payments, Print Fulfillment & Bug Encyclopedia",
+  "private": true,
+  "scripts": {
+    "start": "wp-env start",
+    "stop": "wp-env stop",
+    "destroy": "wp-env destroy",
+    "cli": "wp-env run cli",
+    "logs": "wp-env logs"
+  },
+  "devDependencies": {
+    "@wordpress/env": "^10.0.0"
+  }
+}

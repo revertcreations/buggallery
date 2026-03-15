@@ -1,0 +1,304 @@
+/* ===========================
+   BUG PHOTO SINGLE PAGE
+   Mobile-first QR landing page
+   =========================== */
+
+.bug-page {
+    padding-bottom: var(--space-3xl);
+}
+
+/* --- Hero Section --- */
+
+.bug-hero-image {
+    width: 100%;
+    background: var(--bg-secondary);
+}
+
+.bug-photo {
+    width: 100%;
+    height: auto;
+    max-height: min(82vh, 920px);
+    object-fit: contain;
+    display: block;
+}
+
+.bug-content {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+}
+
+.bug-species-badge {
+    display: inline-block;
+    background: var(--bg-elevated);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.bug-title {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+}
+
+.bug-story {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.bug-story p {
+    margin-bottom: var(--space-md);
+}
+
+/* --- Photographer Card --- */
+
+.bug-photographer {
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: var(--space-lg) auto;
+}
+
+.photographer-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.photographer-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.photographer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.photographer-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.photographer-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+a.photographer-name:hover {
+    color: var(--accent);
+}
+
+/* --- Purchase Options --- */
+
+.bug-purchase {
+    padding-top: var(--space-xl);
+}
+
+.purchase-heading {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-lg);
+}
+
+.purchase-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.purchase-option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    min-height: 64px;
+}
+
+.purchase-option:hover {
+    border-color: var(--accent);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.purchase-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-md);
+    color: var(--accent);
+}
+
+.purchase-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.purchase-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.purchase-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.purchase-desc {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.purchase-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+    margin-left: var(--space-xs);
+}
+
+.purchase-price .woocommerce-Price-amount {
+    color: inherit;
+}
+
+/* --- Related Links --- */
+
+.bug-related {
+    padding-top: var(--space-2xl);
+}
+
+.related-heading {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-lg);
+}
+
+.related-links-chain {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.related-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.15s ease;
+    min-height: 52px;
+}
+
+.related-link:hover {
+    border-color: var(--accent);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+}
+
+.related-link-number {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.related-link-title {
+    flex: 1;
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.related-link-icon {
+    flex-shrink: 0;
+    color: var(--text-muted);
+}
+
+.related-external .related-link-icon {
+    color: var(--accent);
+}
+
+/* --- Responsive --- */
+
+@media (min-width: 768px) {
+    .bug-title {
+        font-size: 2.25rem;
+    }
+
+    .purchase-options {
+        flex-direction: row;
+    }
+
+    .purchase-option {
+        flex: 1;
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-xl);
+        min-height: 220px;
+    }
+
+    .purchase-details {
+        align-items: center;
+    }
+
+    .purchase-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .purchase-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .purchase-title {
+        font-size: 1rem;
+    }
+
+    .purchase-desc {
+        font-size: 0.8125rem;
+    }
+
+    .purchase-price {
+        margin-left: 0;
+        font-size: 1.25rem;
+    }
+}
