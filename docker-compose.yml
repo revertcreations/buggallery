@@ -42,8 +42,8 @@ services:
     restart: unless-stopped
     depends_on:
       - wordpress
-    ports:
-      - "${PORT:-8080}:80"
+    expose:
+      - "80"
     volumes:
       - wp_core:/var/www/html:ro
       - ./wp-content/plugins/buggallery-core:/var/www/html/wp-content/plugins/buggallery-core:ro
