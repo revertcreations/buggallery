@@ -29,8 +29,6 @@ services:
         /* Stripe keys are configured via WooCommerce admin settings */
     volumes:
       - wp_core:/var/www/html
-      - ./wp-content/plugins/buggallery-core:/var/www/html/wp-content/plugins/buggallery-core
-      - ./wp-content/themes/buggallery:/var/www/html/wp-content/themes/buggallery
       - wp_uploads:/var/www/html/wp-content/uploads
     networks:
       - buggallery
@@ -46,8 +44,6 @@ services:
       - "80"
     volumes:
       - wp_core:/var/www/html:ro
-      - ./wp-content/plugins/buggallery-core:/var/www/html/wp-content/plugins/buggallery-core:ro
-      - ./wp-content/themes/buggallery:/var/www/html/wp-content/themes/buggallery:ro
       - wp_uploads:/var/www/html/wp-content/uploads:ro
     networks:
       - buggallery
