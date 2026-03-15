@@ -26,3 +26,10 @@ COPY --chown=www-data:www-data wp-content/plugins/buggallery-core ./wp-content/p
 
 # Must-use plugin for WooCommerce auto-configuration
 COPY --chown=www-data:www-data wordpress/mu-plugins/ ./wp-content/mu-plugins/
+
+# Custom entrypoint ensures the shared uploads volume stays writable
+COPY wordpress/entrypoint.sh /usr/local/bin/buggallery-entrypoint.sh
+RUN chmod +x /usr/local/bin/buggallery-entrypoint.sh
+
+ENTRYPOINT ["buggallery-entrypoint.sh"]
+CMD ["php-fpm"]
